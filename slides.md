@@ -64,6 +64,8 @@ katzumi（かつみ）と申します。
 <img src="https://litalico.co.jp/ogp.png" class="w-40" />
 </a>
 
+自称SBO(Slack Bot Officer)。
+
 以下のアカウントで活動しています。
 
 ::left::
@@ -195,6 +197,141 @@ Google Workspace ファイルに紐づく
 </div>
 
 </v-click>
+
+---
+layout: section
+---
+
+# 作ったSlack Bot(アプリ)
+
+---
+layout: section
+---
+
+# 12個のアプリ
+
+---
+layout: two-cols-header
+---
+
+# 作ったSlackBot達
+
+::left::
+
+#### 実務系
+
+* [Mob Timer Bot](https://github.com/k2tzumi/mob-timer-bot)
+対話的なモブプログラミングタイマー
+
+* [勤怠Bot](https://github.com/k2tzumi/hue-kintai-slask-command)
+勤怠システムと連動した打刻（開発停止中）
+
+* [LGTM画像作成コマンド](https://github.com/k2tzumi/lgtm-slash-command)
+LGTM画像を作成する
+
+#### 会話系
+
+* [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
+ChatGPTとSlackを繋ぐBot
+
+* [echo bot](https://github.com/k2tzumi/slack-echo-bot)
+inviteされたチャネルの内容を別チャネルにechoする。timesの集約に利用
+
+::right::
+
+#### 便利系
+
+* [選んでコマンド](https://github.com/k2tzumi/choice-slash-command)
+通称綾鷹コマンド
+
+* [Pic Search](https://github.com/k2tzumi/pic-search-slash-command)
+画像検索コマンド。kskコマンド対応
+
+* [お天気アプリ](https://github.com/k2tzumi/slack-jma-bot)
+気象庁のAPIから天気等を取得する
+
+#### 通知系
+
+* [Emoji Webhook](https://github.com/k2tzumi/new_emoji_webhook)
+新しい絵文字を通知
+
+* [チャネル作成Webhook](https://github.com/k2tzumi/new_channel_webhook)
+新しく作成されたチャネルを通知
+
+#### URL展開
+
+* [esa](https://github.com/k2tzumi/slack-esa-unfurling)
+esaのURLを展開
+
+* [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
+Stravaのアクティビティをドヤるやつ
+
+---
+layout: section
+---
+
+# Why GAS?
+
+---
+layout: two-cols-header
+---
+
+# 趣味プログラミングの環境としてアリなのでは？
+環境構築の面倒だったり、プログラミング以外のコストもかけたくない...
+
+::left::
+
+* 💳 クレカ登録不要  
+Googleアカウントがあれば  
+*今すぐ無料で開始*
+
+* 🚀 環境構築の手数が少ない  
+設定作業が最小限  
+実行環境の準備が不要  
+バージョン管理が容易  
+デプロイがシンプル  
+**数ステップでデプロイ完了**
+
+<br />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+::right::
+
+* 🛡️ フルマネージド  
+サーバー管理・スケーリング・監視  
+**Google任せで安心**  
+
+* 💛 TypeScript開発
+claspでローカル開発  
+**型安全でモダンな開発**
+
+---
+
+# GASつらい課題
+こんな壁があったりします
+
+* npmライブラリが使えない  
+普通のJavaScriptが動かない...
+
+* 画像加工が鬼門  
+Canvasもなければライブラリもない
+
+* ログが見えない  
+WebAppのログの確認方法が確立されていない
+デバッグが地獄..
+
+* HTTPリクエストが特殊  
+ホワイトリストで登録されたものしか
+UserAgentを変更できない
+
+* データ永続化が特殊  
+workspaceのファイルをストレージ代わりにすることはできるけれど
+
 
 ---
 layout: two-cols-header
