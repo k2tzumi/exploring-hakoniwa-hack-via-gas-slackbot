@@ -21,6 +21,7 @@ transition: slide-left
 mdc: true
 addons:
   - '@katzumi/slidev-addon-qrcode'
+  - "@katzumi/slidev-addon-ogp-image"
   - slidev-addon-components
   - slidev-addon-rabbit
 ---
@@ -318,8 +319,8 @@ claspでローカル開発
 * npmライブラリが使えない  
 普通のJavaScriptが動かない...
 
-* 画像加工が鬼門  
-Canvasもなければライブラリもない
+* Webアプリの実行モデルが同期  
+レスポンスを返すと、この時点で実行終了。非同期処理ができない
 
 * ログが見えない  
 WebAppのログの確認方法が確立されていない
@@ -329,9 +330,83 @@ WebAppのログの確認方法が確立されていない
 ホワイトリストで登録されたものしか
 UserAgentを変更できない
 
+* 画像加工が鬼門  
+Canvasもなければライブラリもない
+
 * データ永続化が特殊  
 workspaceのファイルをストレージ代わりにすることはできるけれど
 
+---
+
+# npmライブラリ使えない問題
+独自ライブラリがあるけれどね
+
+GASは独自環境のため、Node.jsやブラウザ向けのnpmライブラリは基本的に使用できません。
+
+Slack Bolt使えません😭
+
+専用の野良ライブラリもあるけれど
+
+ここらへんのAPI使えない
+
+```js
+// Node.js API（使用不可）
+const fs = require('fs');           // ファイルシステム ❌
+const path = require('path');       // パス操作 ❌
+const http = require('http');       // HTTP サーバー ❌
+
+// ブラウザAPI（使用不可）
+document.getElementById('id');      // DOM操作 ❌
+window.location.href;              // ブラウザ情報 ❌
+
+// GAS専用API（使用可能）
+SpreadsheetApp.getActiveSheet();   // スプレッドシート ✅
+UrlFetchApp.fetch(url);           // HTTP通信 ✅
+```
+
+---
+
+# 自前でSlack APIのクライアントを実装
+Slack APIは公開されているので生暖かく`UrlFetchApp.fetch`
+
+`UrlFetchApp.fetch` はGASでHTTP通信を行うための最重要APIです。  
+外部APIとの連携、Webスクレイピング、Webhook処理などで必須の機能です。
+
+https://github.com/k2tzumi/mob-timer-bot/blob/master/src/SlackApiClient.ts
+
+---
+
+# SlackBotの３秒ルール問題
+3秒間レスポンスを返さないと
+
+<blockquote>
+<p>Acknowledgment response</p>
+<p>All apps must, as a minimum, acknowledge the receipt of a valid interaction payload.</p>
+<br />
+<p>To do that, your app must reply to the HTTP POST request with an HTTP 200 OK response. This must be sent within 3 seconds of receiving the payload. If your app doesn't do that, the Slack user who interacted with the app will see an error message, so ensure your app responds quickly. Otherwise, the user won't see anything when your app only sends an acknowledgment response. If you want to do more, keep reading.</p>
+</blockquote>
+(参考: <a href="https://api.slack.com/interactivity/handling#acknowledgment_response">"Respond immediately to the initial request"</a>)
+
+
+slashコマンドを実行時など問題になりがち
+
+---
+
+# 簡易Jobキューシステムを作った
+非同期処理もできるようになったよ
+
+<OgpImage url="https://zenn.dev/katzumi/articles/58354fb4d05038" />
+
+
+
+
+https://zenn.dev/katzumi/articles/gas-library-globalthis-scope
+
+
+---
+
+# 知見その１
+ライブラリを
 
 ---
 layout: two-cols-header
