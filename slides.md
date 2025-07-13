@@ -48,8 +48,9 @@ v0.0.1
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+Slack Bot開発で得たGASの知見について話します
 -->
+
 
 ---
 transition: fade-out
@@ -65,7 +66,7 @@ katzumi（かつみ）と申します。
 <img src="https://litalico.co.jp/ogp.png" class="w-40" />
 </a>
 
-自称SBO(Slack Bot Officer)。
+社内では SBO(Slack Bot Officer)を自称
 
 以下のアカウントで活動しています。
 
@@ -96,6 +97,11 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+<!--
+はじめましてkatzumiと申します  
+LITALICOで働いており、Slack Bot Officerを名乗っています
+-->
 
 ---
 layout: two-cols-header
@@ -128,19 +134,19 @@ transition: fade-out
 <a href="https://x.com/search?q=%23techramen25conf&f=live">#techramen25conf</a>
 
 
-<!-- 本セッションでは、撮影やSNS拡散を歓迎しています。ご自由に写真を撮影して、XなどのSNSでシェアしてください。 　　
-ただし、以下の点にご注意ください。　　
-
-著作権などの法的な問題を避けるために、スライドや登壇者の写真や動画を無断で商用利用しないでください。　　
-他の参加者のプライバシーや迷惑にならないように、撮影や投稿する際には配慮してください。　　
-SNSでシェアする際には、ハッシュタグ「#phpcon_nagoya #s」をつけてください。　　
-これにより、本セッションの関連情報を簡単に検索できるようになります。 -->
+<!--
+実況大歓迎でーす
+-->
 
 ---
 layout: section
 ---
 
 # 今日のお題
+
+<!--
+本日のお題は
+-->
 
 ---
 layout: section
@@ -149,12 +155,16 @@ layout: section
 # Google Apps Script(GAS)の知見
 立ち食いしてってね
 
+<!--
+GASです
+-->
+
 ---
 layout: two-cols-header
 ---
 
 # 本日のスコープ
-GASの開発手法には２つのパターンがある
+GAS の開発手法には２つのパターンがある
 
 ::left::
 
@@ -164,7 +174,7 @@ GASの開発手法には２つのパターンがある
 Google Workspace ファイルに紐づく
 
 * Sheets, Docs, Forms 等に埋め込み
-* シンプルトリガー（onOpen等）でスクリプト実行
+* シンプルトリガー（onOpen 等）でスクリプト実行
 * WebApp 化は技術的に可能だが非推奨
 * ファイル自動化・マクロ用途
 
@@ -186,7 +196,7 @@ Google Workspace ファイルに紐づく
 
 * WebApp として公開可能
 * 時間駆動トリガー（定期実行）のみ
-* 外部からのHTTPリクエスト対応
+* 外部からの HTTP リクエスト対応
 * 色々ゴニョゴニョできる
 
 </v-click>
@@ -198,6 +208,7 @@ Google Workspace ファイルに紐づく
 </div>
 
 </v-click>
+
 
 ---
 layout: section
@@ -228,15 +239,15 @@ layout: two-cols-header
 勤怠システムと連動した打刻（開発停止中）
 
 * [LGTM画像作成コマンド](https://github.com/k2tzumi/lgtm-slash-command)
-LGTM画像を作成する
+LGTM 画像を作成する
 
 #### 会話系
 
 * [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
-ChatGPTとSlackを繋ぐBot
+ChatGPT と Slack を繋ぐ Bot
 
 * [echo bot](https://github.com/k2tzumi/slack-echo-bot)
-inviteされたチャネルの内容を別チャネルにechoする。timesの集約に利用
+invite されたチャネルの内容を別チャネルに echo する。times の集約に利用
 
 ::right::
 
@@ -246,10 +257,10 @@ inviteされたチャネルの内容を別チャネルにechoする。timesの�
 通称綾鷹コマンド
 
 * [Pic Search](https://github.com/k2tzumi/pic-search-slash-command)
-画像検索コマンド。kskコマンド対応
+画像検索コマンド。ksk コマンド対応
 
 * [お天気アプリ](https://github.com/k2tzumi/slack-jma-bot)
-気象庁のAPIから天気等を取得する
+気象庁の API から天気等を取得する
 
 #### 通知系
 
@@ -262,10 +273,10 @@ inviteされたチャネルの内容を別チャネルにechoする。timesの�
 #### URL展開
 
 * [esa](https://github.com/k2tzumi/slack-esa-unfurling)
-esaのURLを展開
+esa の URL を展開
 
 * [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
-Stravaのアクティビティをドヤるやつ
+Strava のアクティビティをドヤるやつ
 
 ---
 layout: section
@@ -283,7 +294,7 @@ layout: two-cols-header
 ::left::
 
 * 💳 クレカ登録不要  
-Googleアカウントがあれば  
+Google アカウントがあれば  
 *今すぐ無料で開始*
 
 * 🚀 環境構築の手数が少ない  
@@ -307,47 +318,99 @@ Googleアカウントがあれば
 サーバー管理・スケーリング・監視  
 **Google任せで安心**  
 
-* 💛 TypeScript開発
-claspでローカル開発  
+* 💛 TypeScript 開発
+clasp でローカル開発  
 **型安全でモダンな開発**
+
+---
+layout: two-cols-header
+---
+
+# clasp導入によるモダン開発環境の構築
+🚀　clasp で TypeScript 開発環境を手に入れよう
+
+::left::
+
+* **clasp導入のメリット**  
+  * 普段遣いのローカルのエディタで開発できる  
+Web ベースのスクリプトエディタからの卒業
+  * コードを git 管理できる
+  * Typescript で開発できる
+  * デプロイバージョンの管理ができる
+
+<v-click>
+
+<div class="box-text-memo">
+clasp v3はBreaking Changes があります<br />  
+Typescript supportがDropされます<br />
+Rollupを使ってのトランスパイルが必要になります
+</div>
+
+</v-click>
+
+::right::
+* **classpの導入方法**  
+  * classp インストール
+    ```console
+    $ npm install -g @google/clasp
+    ```
+  * Typescript で開発  
+    ```bash
+    # TypeScript環境をセットアップ
+    npm init -y
+    npm install -D typescript @types/google-apps-script
+    ```
+    `tsconfig.json` 作成
+      ```json
+      {
+        "compilerOptions": {
+          "target": "ES2019",
+          "lib": ["ES2019"],
+          "outDir": "./dist",
+          "rootDir": "./src"
+        },
+        "include": ["src/**/*"]
+      }
+      ```
 
 ---
 
 # GASつらい課題
 こんな壁があったりします
 
-* npmライブラリが使えない  
-普通のJavaScriptが動かない...
+* npm ライブラリが使えない  
+普通の JavaScript が動かない...
 
-* Webアプリの実行モデルが同期  
+* Web アプリの実行モデルが同期  
 レスポンスを返すと、この時点で実行終了。非同期処理ができない
 
 * ログが見えない  
-WebAppのログの確認方法が確立されていない
+WebApp のログの確認方法が確立されていない  
 デバッグが地獄..
 
-* HTTPリクエストが特殊  
+* HTTP リクエストが特殊  
 ホワイトリストで登録されたものしか
-UserAgentを変更できない
+UserAgent を変更できない
 
 * 画像加工が鬼門  
-Canvasもなければライブラリもない
+Canvas もなければライブラリもない
 
 * データ永続化が特殊  
-workspaceのファイルをストレージ代わりにすることはできるけれど
+workspace のファイルをストレージ代わりにすることはできるけれど
 
 ---
 
 # npmライブラリ使えない問題
 独自ライブラリがあるけれどね
 
-GASは独自環境のため、Node.jsやブラウザ向けのnpmライブラリは基本的に使用できません。
+GAS は独自環境のため、Node.js やブラウザ向けの npm ライブラリは基本的に使用できません。  
+モジュールシステム非対応です😅
 
-Slack Bolt使えません😭
+Slack Bolt 使えません😭
 
-専用の野良ライブラリもあるけれど
+GAS 向けの野良ライブラリもあるけれど
 
-ここらへんのAPI使えない
+ここらへんの API 使えない
 
 ```js
 // Node.js API（使用不可）
@@ -364,20 +427,51 @@ SpreadsheetApp.getActiveSheet();   // スプレッドシート ✅
 UrlFetchApp.fetch(url);           // HTTP通信 ✅
 ```
 
+<!--
+モジュールシステム非対応で、スクリプトファイル間で関数や変数を共有するスタイルです
+-->
 ---
 
 # 自前でSlack APIのクライアントを実装
-Slack APIは公開されているので生暖かく`UrlFetchApp.fetch`
+Slack の Web API は [公開されている](https://api.slack.com/web) ので生暖かく `UrlFetchApp.fetch`
 
-`UrlFetchApp.fetch` はGASでHTTP通信を行うための最重要APIです。  
-外部APIとの連携、Webスクレイピング、Webhook処理などで必須の機能です。
+`UrlFetchApp.fetch` は GAS で HTTP 通信を行うための最重要 API です。  
+外部 API との連携、Web スクレイピングなどで必須の機能です。
 
-https://github.com/k2tzumi/mob-timer-bot/blob/master/src/SlackApiClient.ts
+<Transform :scale="0.7">
+
+```ts {*}{lines:true}
+private invokeAPI(endPoint: string, payload: Record<never, never>): Response {
+  let response: HTTPResponse;
+
+  try {
+    switch (this.preferredHttpMethod(endPoint)) {
+      case "post":
+        response = UrlFetchApp.fetch(
+          endPoint,
+          this.postRequestOptions(payload)
+        );
+        break;
+      case "get":
+        response = UrlFetchApp.fetch(
+          this.formUrlEncoded(endPoint, payload),
+          this.getRequestOptions()
+        );
+        break;
+      default:
+        throw new Error("Unknown method.");
+    }
+  } catch (e) {
+    console.warn(`DNS error, etc. ${e.message}`);
+    throw new NetworkAccessError(500, e.message);
+  }
+```
+</Transform>
 
 ---
 
 # SlackBotの３秒ルール問題
-3秒間レスポンスを返さないと
+3 秒間レスポンスを返さないと
 
 <blockquote>
 <p>Acknowledgment response</p>
@@ -388,78 +482,235 @@ https://github.com/k2tzumi/mob-timer-bot/blob/master/src/SlackApiClient.ts
 (参考: <a href="https://api.slack.com/interactivity/handling#acknowledgment_response">"Respond immediately to the initial request"</a>)
 
 
-slashコマンドを実行時など問題になりがち
-
----
-
-# 簡易Jobキューシステムを作った
-非同期処理もできるようになったよ
-
-<OgpImage url="https://zenn.dev/katzumi/articles/58354fb4d05038" />
-
-
-
-
-https://zenn.dev/katzumi/articles/gas-library-globalthis-scope
-
-
----
-
-# 知見その１
-ライブラリを
+slash コマンドの実行時など問題になりがち  
 
 ---
 layout: two-cols-header
 ---
 
-# clasp導入によるモダン開発環境の構築
-🚀　claspでTypeScript開発環境を手に入れよう
+# SlackBotの３秒ルール問題
+
 
 ::left::
 
-* **clasp導入のメリット**  
-  * 普段遣いのローカルのエディタで開発できる  
-Webベースのスクリプトエディタからの卒業
-  * コードをgit管理できる
-  * Typescriptで開発できる
-  * デプロイバージョンの管理ができる
+3 秒を超えたら即エラー = Bot 死亡 💀
+
+```ts　{*}{lines:true}
+function doPost(e) {
+  // SlackBotは3秒以内にレスポンス必須！
+  
+  // 外部API呼び出し（5秒かかる）
+  const result = callExternalAPI(); // ⏰ 3秒超過
+  
+  // ここまで到達する前にSlackがエラー扱い
+  return ContentService.createTextOutput(
+    JSON.stringify({text: result})
+  );
+}
+```
+
+::right::
 
 <v-click>
 
-<div class="box-text-memo">
-clasp v3はBreaking Changes があります<br />  
-Typescript supportがDropされます<br />
-Rollupを使ってのトランスパイルが必要になります
-</div>
+GAS は同期的実行モデル
+
+```ts　{*}{lines:true}
+// Webアプリのエンドポイント
+function doGet() {
+  // レスポンスをすぐに返す
+  const output = 
+    ContentService.createTextOutput(
+      "リクエストを受け付けました。処理はバックグラウンドで開始されます..."
+      );
+
+  // ここで非同期処理をキックしようとする
+  asyncFunctionThatWillBeTerminated();
+
+  return output; // この時点でスクリプトの実行は終了する
+}
+
+async function asyncFunctionThatWillBeTerminated() {
+  Logger.log("非同期処理を開始...");
+  Utilities.sleep(10000); // 10秒待機
+  Logger.log("非同期処理が完了しました！"); // **このログは出力されない**
+}
+```
 
 </v-click>
 
-::right::
-* **classpの導入方法**  
-  * classpインストール
-    ```console
-    $ npm install -g @google/clasp
-    ```
-  * Typescriptで開発  
-    ```bash
-    # TypeScript環境をセットアップ
-    npm init -y
-    npm install -D typescript @types/google-apps-script
-    ```
-    `tsconfig.json`作成
-      ```json
-      {
-        "compilerOptions": {
-          "target": "ES2019",
-          "lib": ["ES2019"],
-          "outDir": "./dist",
-          "rootDir": "./src"
-        },
-        "include": ["src/**/*"]
-      }
-      ```
-  
+<!--
+でもレスポンスを返しちゃうと後続処理が終了してしまう
+-->
+
 ---
 
+# 簡易Jobキューシステムを作った
+3 秒ルール回避 + 疑似非同期 = 生存 🎉
 
-https://github.com/fossamagna/gas-webpack-plugin
+GAS の Trigger を使って簡単に非同期を行えるようにライブラリ化しました。  
+TimeBased Trigger が JobBroker に実行を通知し、JobBroker がキャッシュされたパラメータを用いてアプリケーション本体の関数を非同期で実行します。
+<OgpImage url="https://zenn.dev/katzumi/articles/58354fb4d05038" />
+
+
+アプリケーションの globalThis をライブラリに渡すことで、ライブラリがアプリケーション本体のグローバル関数を動的に呼び出せます
+
+<OgpImage url="https://zenn.dev/katzumi/articles/gas-library-globalthis-scope" />
+
+---
+layout: section
+---
+
+# 思いがけない副次効果
+
+---
+
+# Webアプリのログ問題が解消！！
+デバッグが凄くやりやすくなりました
+
+トリガー実行時にログ出力(`console.info()`)すると、ログ表示できます
+
+<img src="./cloud-log.png" />
+
+種類が webapp の場合は、GAS エディタ上でログ表示できません。  
+本当は GCP を作って、StackDriver Logging（現 Cloud Logging）に出力させる必要があったみたい
+
+<!--
+他の代替手段ではスプレッドシートへの出力させたり、Google Cloud プロジェクトを作る手間が必要でした　　
+デバックのしやすさを考えるとGASエディタ上で確認できるのでおすすめです。  
+予期しない例外があったら非同期でログ出力するようにします。
+-->
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* UserAgent を更新できない  
+bot として割と致命的  
+```javascript
+// GASで設定できないヘッダーの例
+const options = {
+  'method': 'GET',
+  'headers': {
+    'User-Agent': 'Custom Agent', // ❌ 無効
+    'Host': 'example.com',        // ❌ 無効
+    'Content-Length': '100',      // ❌ 無効
+    'Accept': 'text/html',        // ✅ 有効
+    'Accept-Language': 'ja-JP',   // ✅ 有効
+    'Cookie': 'session=abc123',   // ✅ 有効
+    'X-Custom-Header': 'value'    // ✅ 有効
+  }
+};
+```
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* リクエスト時の IP を固定できない  
+GAS では、どのサーバーがスクリプトを実行するか、どの IP アドレスからアクセスするかを予測できません 
+GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[https://www.gstatic.com/ipranges/goog.jsonで公開されています] から送信されます。
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* ホワイトリストに登録していない URL にアクセスできない ^[参考: https://developers.google.com/apps-script/manifest/allowlist-url]  
+マニフェストファイル（`appsscript.json`）に urlFetchWhitelist フィールドを含めます
+```json {*}{lines:true}
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "urlFetchWhitelist": [
+    "https://slack.com/",
+    "https://api.slack.com/",
+    "https://hooks.slack.com/",
+    "https://www.googleapis.com/"
+  ]
+}
+```
+
+---
+
+# 諦めて他のFaaSにリクエスト処理を移譲
+どう頑張っても UserAgent は変えられない
+
+勤怠 Bot では UserAgent で弾かれたので、仕方無しに Netlify 経由でアクセスするようにしました
+
+<OgpImage url="https://github.com/k2tzumi/works-kintai-slask-command-netlify-functions" />
+
+使えていたのですが、認証時のセキュリティが強化された ^[CanvasでのFingerPrintを取得] 為、開発停滞中  
+ヘッドレスブラウザ利用も GAS では難しい
+
+----
+
+# 画像加工も苦労した
+LGTM 画像を作りたかった
+
+インチキしています。Cloudinary が使いやすかったです 😅
+<OgpImage url="https://zenn.dev/katzumi/articles/0e9c0a49258afc" />  
+
+
+Pure JS の画像編集ライブラリを WebPack でバンドル。トランスパイルして GAS で動かそうと試みた...
+<OgpImage url="https://github.com/k2tzumi/lgtm-slash-command-npm-library-based" />
+
+<!--
+ポリフィルが上手く行かず断念
+-->
+
+---
+
+# 画像レスポンスも工夫が必要
+ContentService.setMimeType できるけれど、CSV, iCal, JavaScript, JSON, Text, vCard のみ
+
+GAS では画像を直接レスポンス出来ないので、Google Drive にアップロードして共有 URL を作成して配信させる
+
+<OgpImage url="https://github.com/k2tzumi/slack-strava-unfurling" />  
+
+---
+
+# セッション管理も時前で行う必要がある
+データの永続化が特殊
+
+* PropertiesService  
+KVS（Key-Value Store）として利用  
+スクリプト単位で永続化  
+JSON 文字列で複雑なデータも保存  
+容量制限：500KB  
+* Hidden パラメータ持ち回り  
+Slack の Interactive Components に hidden データを埋め込んで状態管理  
+Slack ならユーザーには見えづらいので、やりやすい
+
+
+---
+
+# まだまだできないこと
+
+* リダイレクトができない   
+HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
+`addOns.common.openLinkUrlPrefixes` の指定も必要
+
+---
+
+# 将来の可能性
+
+<OgpImage url="https://zenn.dev/mascii/articles/go-wasm-on-google-apps-script" />  
+
+<!--
+GASでWasm利用の事例をご存知の方がいれば、ぜひ教えてください！
+-->
+
+---
+layout: end
+---
+
+ご清聴ありがとうございました
+
+<!--
+ご清聴ありがとうございました
+-->
