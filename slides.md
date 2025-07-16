@@ -3,14 +3,13 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
+background: https://images.unsplash.com/photo-1667514625485-8ee6281f9dac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title:  「箱庭」をハックするGoogle Apps Script： Slack Bot開発で得た知見（可能性と挑戦）
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  TechRAMEN 2025 Conference  
+  https://techramenconf.net/
 
-  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -22,55 +21,70 @@ transition: slide-left
 mdc: true
 addons:
   - '@katzumi/slidev-addon-qrcode'
+  - "@katzumi/slidev-addon-ogp-image"
   - slidev-addon-components
   - slidev-addon-rabbit
 ---
 
-# Welcome to Slidev
+# 「箱庭」をハックするGoogle Apps Script： Slack Bot開発で得た知見（可能性と挑戦）
+TechRAMEN 2025 Conference Jul 26, 2025.  
+v0.0.1  
+@katzumi(かつみ)
 
-Presentation slides for developers @ v0.1.12
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+<div class="pt-12">
+  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
+    Press Space for next page <carbon:arrow-right class="inline"/>
+  </span>
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
+<div class="abs-br m-6 flex gap-2">
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
-  <a href="https://github.com/k2tzumi/slidev-boilerplate" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
+  <a href="https://github.com/k2tzumi/exploring-hakoniwa-hack-via-gas-slackbot" target="_blank" alt="GitHub" title="Open in GitHub"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
   </a>
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+Slack Bot開発で得たGASの知見について話します
 -->
+
 
 ---
 transition: fade-out
+layout: two-cols-header
 ---
 
-# What is Slidev？
+# 自己紹介
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+katzumi（かつみ）と申します。
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+「障害のない社会をつくる」をビジョンとする「LITALIC（りたりこ）」に所属しています
+<a href="https://litalico.co.jp/">
+<img src="https://litalico.co.jp/ogp.png" class="w-40" />
+</a>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+社内では SBO(Slack Bot Officer)を自称
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+以下のアカウントで活動しています。
+
+::left::
+
+<div class="float-left">
+<img src="https://pbs.twimg.com/profile_images/1768978237210935296/idy9J4l6_400x400.jpg" class="rounded-full w-40 mr"/>  
+<simple-icons-x /> <a href="https://twitter.com/katzchum">katzchum</a></div>  
+<QRCode :width="180" :height="180" value="https://twitter.com/katzchum" color="4329B9" image="Logo_of_X.svg" />
+
+::right::
+
+<img src="https://avatars.githubusercontent.com/u/1182787?v=4" class="rounded-full w-40 mr-12"/>
+
+<logos-github-octocat /> [k2tzumi](https://github.com/k2tzumi)  
+<simple-icons-zenn /> [katzumi](https://zenn.dev/katzumi)  
+
+<br />
 
 <style>
 h1 {
@@ -85,563 +99,618 @@ h1 {
 </style>
 
 <!--
-Here is another comment.
+はじめましてkatzumiと申します  
+LITALICOで働いており、Slack Bot Officerを名乗っています
 -->
 
 ---
-transition: slide-up
-level: 2
+layout: two-cols-header
+transition: fade-out
 ---
 
-# Navigation
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+# お願い 🙏
 
-## Keyboard Shortcuts
+写真撮影、SNS での実況について
 
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
+登壇者の励みになるので是非ともご意見やご感想など、フィードバック頂けると助かります mm  
+あとでスライドを公開します
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+::left::
 
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+<Transform :scale="2.5">
+　　　🙆‍♀📷<ph-projector-screen-chart-light /><br />
+　　　🙅‍♂📹💸<br />
+　　　🙅📸👨‍👦‍👦<br />
+</Transform>
 
 ::right::
 
-<Toc text-sm minDepth="1" maxDepth="2" />
+<br />
+<Transform :scale="2">
+<fa6-brands-square-x-twitter />
+</Transform>
+<br />
+<a href="https://x.com/search?q=%23techramen25conf&f=live">#techramen25conf</a>
 
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover！
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
 
 <!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
+実況大歓迎でーす
 -->
 
 ---
-level: 2
+layout: section
 ---
 
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
+# 今日のお題
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+本日のお題は
 -->
 
 ---
-class: px-20
+layout: section
 ---
 
-# Themes
+# Google Apps Script(GAS)の知見
+立ち食いしてってね
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
+<!--
+GASです
+-->
 
 ---
+layout: two-cols-header
+---
 
-# Clicks Animations
+# 本日のスコープ
+GAS の開発手法には２つのパターンがある
 
-You can add `v-click` to elements to add a click animation.
+::left::
 
-<div v-click>
+### 📊 コンテナバインド型
+<v-click>
 
-This shows up when you click the slide:
+Google Workspace ファイルに紐づく
 
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
+* Sheets, Docs, Forms 等に埋め込み
+* シンプルトリガー（onOpen 等）でスクリプト実行
+* WebApp 化は技術的に可能だが非推奨
+* ファイル自動化・マクロ用途
 
-</div>
+</v-click>
 
-<br>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+::right::
+
+### 🧱 スタンドアロン型
+<v-click>
+独立したスクリプトプロジェクト
+
+* WebApp として公開可能
+* 時間駆動トリガー（定期実行）のみ
+* 外部からの HTTP リクエスト対応
+* 色々ゴニョゴニョできる
+
+</v-click>
 
 <v-click>
 
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
+<div class="speech-bubble">
+⚠️ 今回はスタンドアロン型webappをベースとします！
+</div>
 
-```html
-<span v-mark.underline.orange>inline markers</span>
+</v-click>
+
+
+---
+layout: section
+---
+
+# 作ったSlack Bot(アプリ)
+
+---
+layout: section
+---
+
+# 12個のアプリ
+
+---
+layout: two-cols-header
+---
+
+# 作ったSlackBot達
+
+::left::
+
+#### 実務系
+
+* [Mob Timer Bot](https://github.com/k2tzumi/mob-timer-bot)
+対話的なモブプログラミングタイマー
+
+* [勤怠Bot](https://github.com/k2tzumi/hue-kintai-slask-command)
+勤怠システムと連動した打刻（開発停止中）
+
+* [LGTM画像作成コマンド](https://github.com/k2tzumi/lgtm-slash-command)
+LGTM 画像を作成する
+
+#### 会話系
+
+* [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
+ChatGPT と Slack を繋ぐ Bot
+
+* [echo bot](https://github.com/k2tzumi/slack-echo-bot)
+invite されたチャネルの内容を別チャネルに echo する。times の集約に利用
+
+::right::
+
+#### 便利系
+
+* [選んでコマンド](https://github.com/k2tzumi/choice-slash-command)
+通称綾鷹コマンド
+
+* [Pic Search](https://github.com/k2tzumi/pic-search-slash-command)
+画像検索コマンド。ksk コマンド対応
+
+* [お天気アプリ](https://github.com/k2tzumi/slack-jma-bot)
+気象庁の API から天気等を取得する
+
+#### 通知系
+
+* [Emoji Webhook](https://github.com/k2tzumi/new_emoji_webhook)
+新しい絵文字を通知
+
+* [チャネル作成Webhook](https://github.com/k2tzumi/new_channel_webhook)
+新しく作成されたチャネルを通知
+
+#### URL展開
+
+* [esa](https://github.com/k2tzumi/slack-esa-unfurling)
+esa の URL を展開
+
+* [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
+Strava のアクティビティをドヤるやつ
+
+---
+layout: section
+---
+
+# Why GAS?
+
+---
+layout: two-cols-header
+---
+
+# 趣味プログラミングの環境としてアリなのでは？
+環境構築の面倒だったり、プログラミング以外のコストもかけたくない...
+
+::left::
+
+* 💳 クレカ登録不要  
+Google アカウントがあれば  
+*今すぐ無料で開始*
+
+* 🚀 環境構築の手数が少ない  
+設定作業が最小限  
+実行環境の準備が不要  
+バージョン管理が容易  
+デプロイがシンプル  
+**数ステップでデプロイ完了**
+
+<br />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+::right::
+
+* 🛡️ フルマネージド  
+サーバー管理・スケーリング・監視  
+**Google任せで安心**  
+
+* 💛 TypeScript 開発
+clasp でローカル開発  
+**型安全でモダンな開発**
+
+---
+layout: two-cols-header
+---
+
+# clasp導入によるモダン開発環境の構築
+🚀　clasp で TypeScript 開発環境を手に入れよう
+
+::left::
+
+* **clasp導入のメリット**  
+  * 普段遣いのローカルのエディタで開発できる  
+Web ベースのスクリプトエディタからの卒業
+  * コードを git 管理できる
+  * Typescript で開発できる
+  * デプロイバージョンの管理ができる
+
+<v-click>
+
+<div class="box-text-memo">
+clasp v3はBreaking Changes があります<br />  
+Typescript supportがDropされます<br />
+Rollupを使ってのトランスパイルが必要になります
+</div>
+
+</v-click>
+
+::right::
+* **classpの導入方法**  
+  * classp インストール
+    ```console
+    $ npm install -g @google/clasp
+    ```
+  * Typescript で開発  
+    ```bash
+    # TypeScript環境をセットアップ
+    npm init -y
+    npm install -D typescript @types/google-apps-script
+    ```
+    `tsconfig.json` 作成
+      ```json
+      {
+        "compilerOptions": {
+          "target": "ES2019",
+          "lib": ["ES2019"],
+          "outDir": "./dist",
+          "rootDir": "./src"
+        },
+        "include": ["src/**/*"]
+      }
+      ```
+
+---
+
+# GASつらい課題
+こんな壁があったりします
+
+* npm ライブラリが使えない  
+普通の JavaScript が動かない...
+
+* Web アプリの実行モデルが同期  
+レスポンスを返すと、この時点で実行終了。非同期処理ができない
+
+* ログが見えない  
+WebApp のログの確認方法が確立されていない  
+デバッグが地獄..
+
+* HTTP リクエストが特殊  
+ホワイトリストで登録されたものしか
+UserAgent を変更できない
+
+* 画像加工が鬼門  
+Canvas もなければライブラリもない
+
+* データ永続化が特殊  
+workspace のファイルをストレージ代わりにすることはできるけれど
+
+---
+
+# npmライブラリ使えない問題
+独自ライブラリがあるけれどね
+
+GAS は独自環境のため、Node.js やブラウザ向けの npm ライブラリは基本的に使用できません。  
+モジュールシステム非対応です😅
+
+Slack Bolt 使えません😭
+
+GAS 向けの野良ライブラリもあるけれど
+
+ここらへんの API 使えない
+
+```js
+// Node.js API（使用不可）
+const fs = require('fs');           // ファイルシステム ❌
+const path = require('path');       // パス操作 ❌
+const http = require('http');       // HTTP サーバー ❌
+
+// ブラウザAPI（使用不可）
+document.getElementById('id');      // DOM操作 ❌
+window.location.href;              // ブラウザ情報 ❌
+
+// GAS専用API（使用可能）
+SpreadsheetApp.getActiveSheet();   // スプレッドシート ✅
+UrlFetchApp.fetch(url);           // HTTP通信 ✅
+```
+
+<!--
+モジュールシステム非対応で、スクリプトファイル間で関数や変数を共有するスタイルです
+-->
+---
+
+# 自前でSlack APIのクライアントを実装
+Slack の Web API は [公開されている](https://api.slack.com/web) ので生暖かく `UrlFetchApp.fetch`
+
+`UrlFetchApp.fetch` は GAS で HTTP 通信を行うための最重要 API です。  
+外部 API との連携、Web スクレイピングなどで必須の機能です。
+
+<Transform :scale="0.7">
+
+```ts {*}{lines:true}
+private invokeAPI(endPoint: string, payload: Record<never, never>): Response {
+  let response: HTTPResponse;
+
+  try {
+    switch (this.preferredHttpMethod(endPoint)) {
+      case "post":
+        response = UrlFetchApp.fetch(
+          endPoint,
+          this.postRequestOptions(payload)
+        );
+        break;
+      case "get":
+        response = UrlFetchApp.fetch(
+          this.formUrlEncoded(endPoint, payload),
+          this.getRequestOptions()
+        );
+        break;
+      default:
+        throw new Error("Unknown method.");
+    }
+  } catch (e) {
+    console.warn(`DNS error, etc. ${e.message}`);
+    throw new NetworkAccessError(500, e.message);
+  }
+```
+</Transform>
+
+---
+
+# SlackBotの３秒ルール問題
+3 秒間レスポンスを返さないと
+
+<blockquote>
+<p>Acknowledgment response</p>
+<p>All apps must, as a minimum, acknowledge the receipt of a valid interaction payload.</p>
+<br />
+<p>To do that, your app must reply to the HTTP POST request with an HTTP 200 OK response. This must be sent within 3 seconds of receiving the payload. If your app doesn't do that, the Slack user who interacted with the app will see an error message, so ensure your app responds quickly. Otherwise, the user won't see anything when your app only sends an acknowledgment response. If you want to do more, keep reading.</p>
+</blockquote>
+(参考: <a href="https://api.slack.com/interactivity/handling#acknowledgment_response">"Respond immediately to the initial request"</a>)
+
+
+slash コマンドの実行時など問題になりがち  
+
+---
+layout: two-cols-header
+---
+
+# SlackBotの３秒ルール問題
+
+
+::left::
+
+3 秒を超えたら即エラー = Bot 死亡 💀
+
+```ts　{*}{lines:true}
+function doPost(e) {
+  // SlackBotは3秒以内にレスポンス必須！
+  
+  // 外部API呼び出し（5秒かかる）
+  const result = callExternalAPI(); // ⏰ 3秒超過
+  
+  // ここまで到達する前にSlackがエラー扱い
+  return ContentService.createTextOutput(
+    JSON.stringify({text: result})
+  );
+}
+```
+
+::right::
+
+<v-click>
+
+GAS は同期的実行モデル
+
+```ts　{*}{lines:true}
+// Webアプリのエンドポイント
+function doGet() {
+  // レスポンスをすぐに返す
+  const output = 
+    ContentService.createTextOutput(
+      "リクエストを受け付けました。処理はバックグラウンドで開始されます..."
+      );
+
+  // ここで非同期処理をキックしようとする
+  asyncFunctionThatWillBeTerminated();
+
+  return output; // この時点でスクリプトの実行は終了する
+}
+
+async function asyncFunctionThatWillBeTerminated() {
+  Logger.log("非同期処理を開始...");
+  Utilities.sleep(10000); // 10秒待機
+  Logger.log("非同期処理が完了しました！"); // **このログは出力されない**
+}
 ```
 
 </v-click>
 
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
+<!--
+でもレスポンスを返しちゃうと後続処理が終了してしまう
+-->
 
 ---
 
-# Motions
+# 簡易Jobキューシステムを作った
+3 秒ルール回避 + 疑似非同期 = 生存 🎉
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+GAS の Trigger を使って簡単に非同期を行えるようにライブラリ化しました。  
+TimeBased Trigger が JobBroker に実行を通知し、JobBroker がキャッシュされたパラメータを用いてアプリケーション本体の関数を非同期で実行します。
+<OgpImage url="https://zenn.dev/katzumi/articles/58354fb4d05038" />
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
+アプリケーションの globalThis をライブラリに渡すことで、ライブラリがアプリケーション本体のグローバル関数を動的に呼び出せます
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
+<OgpImage url="https://zenn.dev/katzumi/articles/gas-library-globalthis-scope" />
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
+---
+layout: section
+---
+
+# 思いがけない副次効果
+
+---
+
+# Webアプリのログ問題が解消！！
+デバッグが凄くやりやすくなりました
+
+トリガー実行時にログ出力(`console.info()`)すると、ログ表示できます
+
+<img src="./cloud-log.png" />
+
+種類が webapp の場合は、GAS エディタ上でログ表示できません。  
+本当は GCP を作って、StackDriver Logging（現 Cloud Logging）に出力させる必要があったみたい
+
+<!--
+他の代替手段ではスプレッドシートへの出力させたり、Google Cloud プロジェクトを作る手間が必要でした　　
+デバックのしやすさを考えるとGASエディタ上で確認できるのでおすすめです。  
+予期しない例外があったら非同期でログ出力するようにします。
+-->
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* UserAgent を更新できない  
+bot として割と致命的  
+```javascript
+// GASで設定できないヘッダーの例
+const options = {
+  'method': 'GET',
+  'headers': {
+    'User-Agent': 'Custom Agent', // ❌ 無効
+    'Host': 'example.com',        // ❌ 無効
+    'Content-Length': '100',      // ❌ 無効
+    'Accept': 'text/html',        // ✅ 有効
+    'Accept-Language': 'ja-JP',   // ✅ 有効
+    'Cookie': 'session=abc123',   // ✅ 有効
+    'X-Custom-Header': 'value'    // ✅ 有効
   }
+};
+```
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* リクエスト時の IP を固定できない  
+GAS では、どのサーバーがスクリプトを実行するか、どの IP アドレスからアクセスするかを予測できません 
+GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[https://www.gstatic.com/ipranges/goog.jsonで公開されています] から送信されます。
+
+---
+
+# HTTPリクエストが特殊
+スクレイピングに制約
+
+* ホワイトリストに登録していない URL にアクセスできない ^[参考: https://developers.google.com/apps-script/manifest/allowlist-url]  
+マニフェストファイル（`appsscript.json`）に urlFetchWhitelist フィールドを含めます
+```json {*}{lines:true}
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "urlFetchWhitelist": [
+    "https://slack.com/",
+    "https://api.slack.com/",
+    "https://hooks.slack.com/",
+    "https://www.googleapis.com/"
+  ]
 }
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="618,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
 ```
 
 ---
-layout: center
-class: text-center
+
+# 諦めて他のFaaSにリクエスト処理を移譲
+どう頑張っても UserAgent は変えられない
+
+勤怠 Bot では UserAgent で弾かれたので、仕方無しに Netlify 経由でアクセスするようにしました
+
+<OgpImage url="https://github.com/k2tzumi/works-kintai-slask-command-netlify-functions" />
+
+使えていたのですが、認証時のセキュリティが強化された ^[CanvasでのFingerPrintを取得] 為、開発停滞中  
+ヘッドレスブラウザ利用も GAS では難しい
+
+----
+
+# 画像加工も苦労した
+LGTM 画像を作りたかった
+
+インチキしています。Cloudinary が使いやすかったです 😅
+<OgpImage url="https://zenn.dev/katzumi/articles/0e9c0a49258afc" />  
+
+
+Pure JS の画像編集ライブラリを WebPack でバンドル。トランスパイルして GAS で動かそうと試みた...
+<OgpImage url="https://github.com/k2tzumi/lgtm-slash-command-npm-library-based" />
+
+<!--
+ポリフィルが上手く行かず断念
+-->
+
 ---
 
-# Learn More
+# 画像レスポンスも工夫が必要
+ContentService.setMimeType できるけれど、CSV, iCal, JavaScript, JSON, Text, vCard のみ
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+GAS では画像を直接レスポンス出来ないので、Google Drive にアップロードして共有 URL を作成して配信させる
 
-<div class="flex justify-center">
+<OgpImage url="https://github.com/k2tzumi/slack-strava-unfurling" />  
 
-<QRCode value="https://github.com/k2tzumi/slidev-boilerplate" color="0e0c0d" image="github-mark.svg" />
+---
 
-</div>
+# セッション管理も時前で行う必要がある
+データの永続化が特殊
 
-<PoweredBySlidev mt-10 />
+* PropertiesService  
+KVS（Key-Value Store）として利用  
+スクリプト単位で永続化  
+JSON 文字列で複雑なデータも保存  
+容量制限：500KB  
+* Hidden パラメータ持ち回り  
+Slack の Interactive Components に hidden データを埋め込んで状態管理  
+Slack ならユーザーには見えづらいので、やりやすい
 
+
+---
+
+# まだまだできないこと
+
+* リダイレクトができない   
+HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
+`addOns.common.openLinkUrlPrefixes` の指定も必要
+
+---
+
+# 将来の可能性
+
+<OgpImage url="https://zenn.dev/mascii/articles/go-wasm-on-google-apps-script" />  
+
+<!--
+GASでWasm利用の事例をご存知の方がいれば、ぜひ教えてください！
+-->
+
+---
+layout: end
+---
+
+ご清聴ありがとうございました
+
+<!--
+ご清聴ありがとうございました
+-->
