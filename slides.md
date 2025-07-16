@@ -61,7 +61,7 @@ layout: two-cols-header
 
 katzumi（かつみ）と申します。
 
-「障害のない社会をつくる」をビジョンとする「LITALIC（りたりこ）」に所属しています
+「障害のない社会をつくる」をビジョンとする「LITALICO（りたりこ）」に所属しています
 <a href="https://litalico.co.jp/">
 <img src="https://litalico.co.jp/ogp.png" class="w-40" />
 </a>
@@ -100,7 +100,8 @@ h1 {
 
 <!--
 はじめましてkatzumiと申します  
-LITALICOで働いており、Slack Bot Officerを名乗っています
+LITALICOという会社で、社内ではSlack Bot Officerとして活動しています。  
+好きなラーメンは油そばとベジポタラーメンです
 -->
 
 ---
@@ -131,11 +132,11 @@ transition: fade-out
 <fa6-brands-square-x-twitter />
 </Transform>
 <br />
-<a href="https://x.com/search?q=%23techramen25conf&f=live">#techramen25conf</a>
+<a href="https://x.com/search?q=%23techramen25conf%20%23shoyu&f=live">#techramen25conf #shoyu</a>
 
 
 <!--
-実況大歓迎でーす
+実況をお願いいたします。
 -->
 
 ---
@@ -145,7 +146,6 @@ layout: section
 # 今日のお題
 
 <!--
-本日のお題は
 -->
 
 ---
@@ -156,7 +156,7 @@ layout: section
 立ち食いしてってね
 
 <!--
-GASです
+本日はGoogle Apps Script (GAS) の知見についてお話ししたいと思います。
 -->
 
 ---
@@ -209,6 +209,14 @@ Google Workspace ファイルに紐づく
 
 </v-click>
 
+<!--
+GASの開発手法には2つのパターンがあります。  
+[click] Google Workspaceのファイルに紐づいて動くコンテナバインド型と
+
+[click] 独立したスクリプトプロジェクトとして動くスタンドアロン型です。  
+
+[click] 今回はスタンドアロン型のWebAppをベースにお話しします。
+-->
 
 ---
 layout: section
@@ -216,11 +224,19 @@ layout: section
 
 # 作ったSlack Bot(アプリ)
 
+<!--
+私が作ったSlack Botを軽く紹介させていただきますと
+-->
+
 ---
 layout: section
 ---
 
 # 12個のアプリ
+
+<!--
+現在12個ほど作成しており
+-->
 
 ---
 layout: two-cols-header
@@ -278,11 +294,20 @@ esa の URL を展開
 * [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
 Strava のアクティビティをドヤるやつ
 
+<!--
+実務系、便利系、会話系など、幅広くレパートリーを揃えています  
+社内で一番Botを生やしていると自負しています
+-->
+
 ---
 layout: section
 ---
 
 # Why GAS?
+
+<!--
+なぜGASを選んだかというと、
+-->
 
 ---
 layout: two-cols-header
@@ -321,6 +346,16 @@ Google アカウントがあれば
 * 💛 TypeScript 開発
 clasp でローカル開発  
 **型安全でモダンな開発**
+
+<!--
+趣味プログラミングの環境として非常に優れていると考えているからです。  
+
+クレジットカード登録が不要で無料で開発でき、Googleアカウントさえあればすぐに始められます。  
+
+環境構築の手間も少なく、約5年間Botを運用していますが、Google側の問題で止まったということがなく、非常にストレスフリーです。
+
+また、TypeScriptでの開発も可能で、言語の学習の良い課題だと思い、使い始めました。
+-->
 
 ---
 layout: two-cols-header
@@ -373,6 +408,13 @@ Rollupを使ってのトランスパイルが必要になります
       }
       ```
 
+<!--
+claspというCLIツールを使えば、TypeScriptで開発できるようになります。
+
+[click] ただし、最近v3が出そうで、Breaking Changesがあり、TypeScriptのサポートがドロップされるようです。  
+自前でトランスパイルする必要があるとのことです。
+-->
+
 ---
 
 # GASつらい課題
@@ -397,6 +439,11 @@ Canvas もなければライブラリもない
 
 * データ永続化が特殊  
 workspace のファイルをストレージ代わりにすることはできるけれど
+
+<!--
+GASにはいくつか辛い課題がありました。  
+色々なBotを作っていく中で、ここに挙げたような課題を乗り越えたり、乗り越えなかったりした知見を話したいと思います。
+-->
 
 ---
 
@@ -428,8 +475,12 @@ UrlFetchApp.fetch(url);           // HTTP通信 ✅
 ```
 
 <!--
-モジュールシステム非対応で、スクリプトファイル間で関数や変数を共有するスタイルです
+まず「npmライブラリが使えない問題」です。  
+
+GASは独自実行環境のため、Node.jsやブラウザ向けのnpmライブラリは基本的に使えません。  
+モジュールシステムが非対応であるため、Slack Boltのようなフレームワークも使えません。
 -->
+
 ---
 
 # 自前でSlack APIのクライアントを実装
@@ -468,6 +519,12 @@ private invokeAPI(endPoint: string, payload: Record<never, never>): Response {
 ```
 </Transform>
 
+<!--
+ではどうしたかというと、自前でSlack APIのクライアントを実装しました。  
+SlackのWeb APIは公開されているので、UrlFetchAppを使って書いていく形です。  
+これはGASでHTTP通信を行うための最も重要なAPIで、外部API連携やWebスクレイピングに必須の機能です。
+-->
+
 ---
 
 # SlackBotの３秒ルール問題
@@ -483,6 +540,10 @@ private invokeAPI(endPoint: string, payload: Record<never, never>): Response {
 
 
 slash コマンドの実行時など問題になりがち  
+
+<!--
+次に「Slack Botの3秒ルール問題」です。  
+-->
 
 ---
 layout: two-cols-header
@@ -540,7 +601,8 @@ async function asyncFunctionThatWillBeTerminated() {
 </v-click>
 
 <!--
-でもレスポンスを返しちゃうと後続処理が終了してしまう
+3秒以内にレスポンスを返さないとエラーになります。  
+GASは同期実行モデルであるため、レスポンスを返すとその時点で実行が終了し、非同期処理が途中で終わってしまうという問題がありました。
 -->
 
 ---
@@ -557,11 +619,27 @@ TimeBased Trigger が JobBroker に実行を通知し、JobBroker がキャッ�
 
 <OgpImage url="https://zenn.dev/katzumi/articles/gas-library-globalthis-scope" />
 
+
+
+<!--
+これに対し、簡易Jobキューシステムを自作しました。  
+GASのトリガーを使って簡単に非同期処理を行えるようにライブラリ化しました。  
+Triggerがライブラリに実行を通知し、ライブラリ側からキャッシュされたパラメーターを用いてアプリケーション本体の関数を非同期で実行する仕組みです。  
+
+詳細は記事がありますので、そちらをご覧ください。  
+また、テクニック的なことですが、アプリケーションのglobalThisをライブラリに渡すことで、ライブラリがアプリケーション本体のグローバル関数を動的に呼び出すことができます。  
+これは良いテクニックなので、ぜひ見てみてください。
+-->
+
 ---
 layout: section
 ---
 
 # 思いがけない副次効果
+
+<!--
+そして、思いがけない副次効果もありました。
+-->
 
 ---
 
@@ -570,15 +648,17 @@ layout: section
 
 トリガー実行時にログ出力(`console.info()`)すると、ログ表示できます
 
-<img src="./cloud-log.png" />
+<img src="/cloud-log.png" />
 
 種類が webapp の場合は、GAS エディタ上でログ表示できません。  
 本当は GCP を作って、StackDriver Logging（現 Cloud Logging）に出力させる必要があったみたい
 
 <!--
-他の代替手段ではスプレッドシートへの出力させたり、Google Cloud プロジェクトを作る手間が必要でした　　
-デバックのしやすさを考えるとGASエディタ上で確認できるのでおすすめです。  
-予期しない例外があったら非同期でログ出力するようにします。
+Webアプリのログが見れない問題が解消したのです。  
+トリガー実行時にconsole.info()でログを出力すると、ログが表示できるようになりました。  
+
+WebAppの種類だとGASエディタ上でログ表示できませんが、トリガー実行の場合は可能です。  
+本来はGCPプロジェクトを作成してStackDriver Loggingに出力させる必要がありますが、課金の問題などもあり、この方法であれば簡単にログを見ることができます。
 -->
 
 ---
@@ -604,6 +684,10 @@ const options = {
 };
 ```
 
+<!--
+「HTTPリクエストが特殊」という課題もあります。User-Agentを更新できなかったり
+-->
+
 ---
 
 # HTTPリクエストが特殊
@@ -612,6 +696,10 @@ const options = {
 * リクエスト時の IP を固定できない  
 GAS では、どのサーバーがスクリプトを実行するか、どの IP アドレスからアクセスするかを予測できません 
 GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[https://www.gstatic.com/ipranges/goog.jsonで公開されています] から送信されます。
+
+<!--
+リクエスト元のIPアドレスが固定できなかったりします。
+-->
 
 ---
 
@@ -635,6 +723,10 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 }
 ```
 
+<!--
+また、マニフェストファイルにurlFetchWhitelistにURLを登録しないとアクセスできません。
+-->
+
 ---
 
 # 諦めて他のFaaSにリクエスト処理を移譲
@@ -647,7 +739,12 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 使えていたのですが、認証時のセキュリティが強化された ^[CanvasでのFingerPrintを取得] 為、開発停滞中  
 ヘッドレスブラウザ利用も GAS では難しい
 
-----
+<!--
+User-Agentを変更できない問題については、他のFaaS（Function as a Service）にリクエスト処理を移譲しました。  
+具体的にはNetlify Functionsを使って回避しました
+-->
+
+---
 
 # 画像加工も苦労した
 LGTM 画像を作りたかった
@@ -660,7 +757,8 @@ Pure JS の画像編集ライブラリを WebPack でバンドル。トランス
 <OgpImage url="https://github.com/k2tzumi/lgtm-slash-command-npm-library-based" />
 
 <!--
-ポリフィルが上手く行かず断念
+「画像加工も苦労した」点です。LGTM画像を作りたかったのですが、Canvasや画像加工ライブラリがGASにはないため、外部サービスを利用しました。  
+Pure JavaScriptの画像編集ライブラリをWebpackでバンドルし、トランスパイルしてGASで動かそうと試みましたが、うまくいきませんでした。
 -->
 
 ---
@@ -671,6 +769,11 @@ ContentService.setMimeType できるけれど、CSV, iCal, JavaScript, JSON, Tex
 GAS では画像を直接レスポンス出来ないので、Google Drive にアップロードして共有 URL を作成して配信させる
 
 <OgpImage url="https://github.com/k2tzumi/slack-strava-unfurling" />  
+
+<!--
+「画像レスポンスも工夫が必要」です。ContentService.setMimeTypeで設定できるMIMEタイプは厳密に定められており、画像は直接レスポンスできません。  
+それを回避する為にoogle Driveにアップロードして共有URLを作成し、それを配信するという手法を取りました。
+-->
 
 ---
 
@@ -686,6 +789,10 @@ JSON 文字列で複雑なデータも保存
 Slack の Interactive Components に hidden データを埋め込んで状態管理  
 Slack ならユーザーには見えづらいので、やりやすい
 
+<!--
+「セッション管理も自前で行う必要がある」という課題もありました。  
+データの永続化が特殊で、PropertiesServiceをKVS（Key-Value Store）として利用したり、SlackのInteractive Componentsのhiddenパラメータにデータを埋め込んで状態管理をしたりと、自前で実装する必要がありました。
+-->
 
 ---
 
@@ -695,14 +802,21 @@ Slack ならユーザーには見えづらいので、やりやすい
 HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
 `addOns.common.openLinkUrlPrefixes` の指定も必要
 
+<!--
+まだできないこともあります。例えば「リダイレクト」です。  
+HTMLをレスポンスさせて強制的にリフレッシュさせることはできますが、使い所が限定的です。
+-->
+
 ---
 
-# 将来の可能性
+# 気になっていること  
+ライブラリ問題に一石を投じるか！？
 
-<OgpImage url="https://zenn.dev/mascii/articles/go-wasm-on-google-apps-script" />  
+<OgpImage url="https://zenn.dev/mascii/articles/go-wasm-on-google-apps-script" />
 
 <!--
-GASでWasm利用の事例をご存知の方がいれば、ぜひ教えてください！
+最後に、個人的に注目していくこととして、WebAssemblyです。  
+もしそういった知識をお持ちの方がいらっしゃいましたら、ぜひお話させていただければと思います。
 -->
 
 ---
