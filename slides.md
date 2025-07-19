@@ -169,7 +169,7 @@ GAS の開発手法には２つのパターンがある
 
 ::left::
 
-### 📊 コンテナバインド型
+### <octicon-container-16 /> コンテナバインド型
 <v-click>
 
 <logos-google-workspace /> ファイルに紐づく
@@ -191,7 +191,7 @@ GAS の開発手法には２つのパターンがある
 
 ::right::
 
-### 🧱 スタンドアロン型
+### <line-md-file-off-twotone /> スタンドアロン型
 <v-click>
 独立したスクリプトプロジェクト
 
@@ -243,7 +243,7 @@ layout: section
 layout: two-cols-header
 ---
 
-# <carbon-bot /> 作ったSlackBot達
+# <devicon-slack /> 作ったSlackBot達 <carbon-chat-bot />
 
 ::left::
 
@@ -304,7 +304,7 @@ Strava のアクティビティをドヤるやつ
 layout: section
 ---
 
-# <carbon-help /> Why GAS?
+# <tabler-mood-puzzled /> Why GAS?
 
 <!--
 なぜGASを選んだかというと、
@@ -319,16 +319,16 @@ layout: two-cols-header
 
 ::left::
 
-* 💳 クレカ登録不要  
-Google アカウントがあれば  
-*今すぐ無料で開始*
+* <noto-credit-card /> **クレカ登録不要**  
+  Google アカウントがあれば  
+  *今すぐ無料で開始*
 
-* 🚀 環境構築の手数が少ない  
-設定作業が最小限  
-実行環境の準備が不要  
-バージョン管理が容易  
-デプロイがシンプル  
-**数ステップでデプロイ完了**
+* <logos-aws-codedeploy /> **環境構築の手数が少ない**  
+  設定作業が最小限  
+  実行環境の準備が不要  
+  バージョン管理が容易  
+  デプロイがシンプル  
+  **数ステップでデプロイ完了**
 
 <br />
 
@@ -340,13 +340,13 @@ Google アカウントがあれば
 
 ::right::
 
-* 🛡️ フルマネージド  
-サーバー管理・スケーリング・監視  
-**Google任せで安心**  
+* <carbon-managed-solutions /> **フルマネージド**
+  サーバー管理・スケーリング・監視  
+  **Google任せで安心**  
 
-* 💛 TypeScript 開発
-clasp でローカル開発  
-**型安全でモダンな開発**
+* <devicon-typescript /> **TypeScript 開発**  
+  clasp でローカル開発  
+  **型安全でモダンな開発**
 
 <!--
 趣味プログラミングの環境として非常に優れていると考えているからです。  
@@ -367,7 +367,7 @@ layout: two-cols-header
 
 ::left::
 
-* **clasp導入のメリット**  
+* <icon-park-outline-good-one />**clasp導入のメリット**  
   * 普段遣いのローカルのエディタで開発できる  
 Web ベースのスクリプトエディタからの卒業
   * コードを git 管理できる
@@ -385,7 +385,7 @@ Rollupを使ってのトランスパイルが必要になります
 </v-click>
 
 ::right::
-* **classpの導入方法**  
+* <entypo-install /> **classpの導入方法**  
   * classp インストール
     ```console
     $ npm install -g @google/clasp
@@ -417,29 +417,35 @@ claspというCLIツールを使えば、TypeScriptで開発できるように�
 -->
 
 ---
+layout: two-cols-header
+---
 
 # <carbon-warning-alt /> GASつらい課題
 こんな壁があったりします
 
-* npm ライブラリが使えない  
-普通の JavaScript が動かない...
+::left::
 
-* Web アプリの実行モデルが同期  
-レスポンスを返すと、この時点で実行終了。非同期処理ができない
+* <carbon-package /> npm ライブラリが使えない  
+  普通の JavaScript が動かない...
 
-* ログが見えない  
-WebApp のログの確認方法が確立されていない  
-デバッグが地獄..
+* <mdi-sign-direction /> Web アプリの実行モデルが同期  
+  レスポンスを返すと、この時点で実行終了。非同期処理ができない
 
-* HTTP リクエストが特殊  
-ホワイトリストで登録されたものしか
-UserAgent を変更できない
+* <tabler-sunglasses /> ログが見えない  
+  WebApp のログの確認方法が確立されていない  
+  デバッグが地獄..
 
-* 画像加工が鬼門  
-Canvas もなければライブラリもない
+* <carbon-network-4 /> HTTP リクエストが特殊  
+  ホワイトリストで登録されたものしか
+  UserAgent を変更できない
 
-* データ永続化が特殊  
-workspace のファイルをストレージ代わりにすることはできるけれど
+::right::
+
+* <carbon-image-search /> 画像加工が鬼門  
+  Canvas もなければライブラリもない
+
+* <carbon-save /> データ永続化が特殊  
+  workspace のファイルをストレージ代わりにすることはできるけれど
 
 <!--
 GASにはいくつか辛い課題がありました。  
@@ -667,7 +673,7 @@ WebAppの種類だとGASエディタ上でログ表示できませんが、ト�
 # <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
-* UserAgent を更新できない  
+* <mdi-pencil-off-outline /> UserAgent を更新できない  
 bot として割と致命的  
 ```javascript
 // GASで設定できないヘッダーの例
@@ -694,7 +700,7 @@ const options = {
 # <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
-* リクエスト時の IP を固定できない  
+* <carbon-network-public /> リクエスト時の IP を固定できない  
 GAS では、どのサーバーがスクリプトを実行するか、どの IP アドレスからアクセスするかを予測できません 
 GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[https://www.gstatic.com/ipranges/goog.jsonで公開されています] から送信されます。
 
@@ -707,7 +713,7 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 # <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
-* ホワイトリストに登録していない URL にアクセスできない ^[参考: https://developers.google.com/apps-script/manifest/allowlist-url]  
+* <carbon-rule /> ホワイトリストに登録していない URL にアクセスできない ^[参考: https://developers.google.com/apps-script/manifest/allowlist-url]  
 マニフェストファイル（`appsscript.json`）に urlFetchWhitelist フィールドを含めます
 ```json {*}{lines:true}
 {
@@ -781,14 +787,15 @@ GAS では画像を直接レスポンス出来ないので、Google Drive にア
 # <carbon-save /> セッション管理も時前で行う必要がある
 データの永続化が特殊
 
-* PropertiesService  
-KVS（Key-Value Store）として利用  
-スクリプト単位で永続化  
-JSON 文字列で複雑なデータも保存  
-容量制限：500KB  
-* Hidden パラメータ持ち回り  
-Slack の Interactive Components に hidden データを埋め込んで状態管理  
-Slack ならユーザーには見えづらいので、やりやすい
+* <carbon-data-base /> PropertiesService  
+  KVS（Key-Value Store）として利用  
+  スクリプト単位で永続化  
+  JSON 文字列で複雑なデータも保存  
+  容量制限：500KB  
+
+* <carbon-password /> Hidden パラメータ持ち回り  
+  Slack の Interactive Components に hidden データを埋め込んで状態管理  
+  Slack ならユーザーには見えづらいので、やりやすい
 
 <!--
 「セッション管理も自前で行う必要がある」という課題もありました。  
@@ -799,9 +806,11 @@ Slack ならユーザーには見えづらいので、やりやすい
 
 # <carbon-construction /> まだまだできないこと
 
-* リダイレクトができない   
-HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
-`addOns.common.openLinkUrlPrefixes` の指定も必要
+* <carbon-unlink /> リダイレクトができない  
+
+  HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
+  `addOns.common.openLinkUrlPrefixes` の指定も必要
+
 
 <!--
 まだできないこともあります。例えば「リダイレクト」です。  
