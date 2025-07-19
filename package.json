@@ -12,6 +12,7 @@
     "lint": "textlint slides.md"
   },
   "dependencies": {
+    "@google/gemini-cli": "^0.1.12",
     "@katzumi/slidev-addon-ogp-image": "^0.0.5",
     "@katzumi/slidev-addon-qrcode": "^0.0.17",
     "@slidev/cli": "^52.0.0",
@@ -21,14 +22,19 @@
     "slidev-addon-rabbit": "^0.4.0"
   },
   "devDependencies": {
+    "@iconify-json/bx": "^1.2.2",
+    "@iconify-json/carbon": "^1.2.10",
     "@iconify-json/devicon": "^1.2.31",
     "@iconify-json/emojione": "^1.2.1",
     "@iconify-json/emojione-monotone": "^1.2.1",
+    "@iconify-json/f7": "^1.2.2",
+    "@iconify-json/fa": "^1.2.1",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/fxemoji": "^1.2.1",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/logos": "^1.2.4",
     "@iconify-json/material-symbols": "^1.2.29",
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/noto": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.43",
     "@iconify-json/skill-icons": "^1.2.0",

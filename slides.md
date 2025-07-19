@@ -57,7 +57,7 @@ transition: fade-out
 layout: two-cols-header
 ---
 
-# 自己紹介
+# <carbon-user-avatar /> 自己紹介
 
 katzumi（かつみ）と申します。
 
@@ -110,7 +110,7 @@ transition: fade-out
 ---
 
 
-# お願い 🙏
+# <carbon-information /> お願い 🙏
 
 写真撮影、SNS での実況について
 
@@ -143,7 +143,7 @@ transition: fade-out
 layout: section
 ---
 
-# 今日のお題
+# <carbon-bullhorn /> 今日のお題
 
 <!--
 -->
@@ -152,7 +152,8 @@ layout: section
 layout: section
 ---
 
-# Google Apps Script(GAS)の知見
+# <simple-icons-googleappsscript /> Google Apps Script(GAS)の
+# 知見
 立ち食いしてってね
 
 <!--
@@ -163,7 +164,7 @@ layout: section
 layout: two-cols-header
 ---
 
-# 本日のスコープ
+# <f7-scope /> 本日のスコープ
 GAS の開発手法には２つのパターンがある
 
 ::left::
@@ -171,7 +172,7 @@ GAS の開発手法には２つのパターンがある
 ### 📊 コンテナバインド型
 <v-click>
 
-Google Workspace ファイルに紐づく
+<logos-google-workspace /> ファイルに紐づく
 
 * Sheets, Docs, Forms 等に埋め込み
 * シンプルトリガー（onOpen 等）でスクリプト実行
@@ -222,7 +223,7 @@ GASの開発手法には2つのパターンがあります。
 layout: section
 ---
 
-# 作ったSlack Bot(アプリ)
+# <devicon-slack /> 作ったSlack Bot(アプリ)
 
 <!--
 私が作ったSlack Botを軽く紹介させていただきますと
@@ -232,7 +233,7 @@ layout: section
 layout: section
 ---
 
-# 12個のアプリ
+# <f7-number-circle /> 12個のアプリ
 
 <!--
 現在12個ほど作成しており
@@ -242,11 +243,11 @@ layout: section
 layout: two-cols-header
 ---
 
-# 作ったSlackBot達
+# <carbon-bot /> 作ったSlackBot達
 
 ::left::
 
-#### 実務系
+#### <fa-cogs /> **実務系**
 
 * [Mob Timer Bot](https://github.com/k2tzumi/mob-timer-bot)
 対話的なモブプログラミングタイマー
@@ -257,7 +258,7 @@ layout: two-cols-header
 * [LGTM画像作成コマンド](https://github.com/k2tzumi/lgtm-slash-command)
 LGTM 画像を作成する
 
-#### 会話系
+#### <carbon-chat /> **会話系**
 
 * [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
 ChatGPT と Slack を繋ぐ Bot
@@ -267,7 +268,7 @@ invite されたチャネルの内容を別チャネルに echo する。times �
 
 ::right::
 
-#### 便利系
+#### <carbon-tool-kit /> **便利系**
 
 * [選んでコマンド](https://github.com/k2tzumi/choice-slash-command)
 通称綾鷹コマンド
@@ -278,7 +279,7 @@ invite されたチャネルの内容を別チャネルに echo する。times �
 * [お天気アプリ](https://github.com/k2tzumi/slack-jma-bot)
 気象庁の API から天気等を取得する
 
-#### 通知系
+#### <carbon-notification /> **通知系**
 
 * [Emoji Webhook](https://github.com/k2tzumi/new_emoji_webhook)
 新しい絵文字を通知
@@ -286,7 +287,7 @@ invite されたチャネルの内容を別チャネルに echo する。times �
 * [チャネル作成Webhook](https://github.com/k2tzumi/new_channel_webhook)
 新しく作成されたチャネルを通知
 
-#### URL展開
+#### <carbon-link /> **URL展開**
 
 * [esa](https://github.com/k2tzumi/slack-esa-unfurling)
 esa の URL を展開
@@ -303,7 +304,7 @@ Strava のアクティビティをドヤるやつ
 layout: section
 ---
 
-# Why GAS?
+# <carbon-help /> Why GAS?
 
 <!--
 なぜGASを選んだかというと、
@@ -313,7 +314,7 @@ layout: section
 layout: two-cols-header
 ---
 
-# 趣味プログラミングの環境としてアリなのでは？
+# <carbon-code /> 趣味プログラミングの環境としてアリなのでは？
 環境構築の面倒だったり、プログラミング以外のコストもかけたくない...
 
 ::left::
@@ -361,7 +362,7 @@ clasp でローカル開発
 layout: two-cols-header
 ---
 
-# clasp導入によるモダン開発環境の構築
+# <carbon-terminal /> clasp導入によるモダン開発環境の構築
 🚀　clasp で TypeScript 開発環境を手に入れよう
 
 ::left::
@@ -417,7 +418,7 @@ claspというCLIツールを使えば、TypeScriptで開発できるように�
 
 ---
 
-# GASつらい課題
+# <carbon-warning-alt /> GASつらい課題
 こんな壁があったりします
 
 * npm ライブラリが使えない  
@@ -447,7 +448,7 @@ GASにはいくつか辛い課題がありました。
 
 ---
 
-# npmライブラリ使えない問題
+# <carbon-package /> npmライブラリ使えない問題
 独自ライブラリがあるけれどね
 
 GAS は独自環境のため、Node.js やブラウザ向けの npm ライブラリは基本的に使用できません。  
@@ -483,7 +484,7 @@ GASは独自実行環境のため、Node.jsやブラウザ向けのnpmライブ�
 
 ---
 
-# 自前でSlack APIのクライアントを実装
+# <carbon-code-reference /> 自前でSlack APIのクライアントを実装
 Slack の Web API は [公開されている](https://api.slack.com/web) ので生暖かく `UrlFetchApp.fetch`
 
 `UrlFetchApp.fetch` は GAS で HTTP 通信を行うための最重要 API です。  
@@ -527,7 +528,7 @@ SlackのWeb APIは公開されているので、UrlFetchAppを使って書いて
 
 ---
 
-# SlackBotの３秒ルール問題
+# <carbon-timer /> SlackBotの３秒ルール問題
 3 秒間レスポンスを返さないと
 
 <blockquote>
@@ -549,7 +550,7 @@ slash コマンドの実行時など問題になりがち
 layout: two-cols-header
 ---
 
-# SlackBotの３秒ルール問題
+# <carbon-timer /> SlackBotの３秒ルール問題
 
 
 ::left::
@@ -607,7 +608,7 @@ GASは同期実行モデルであるため、レスポンスを返すとその�
 
 ---
 
-# 簡易Jobキューシステムを作った
+# <carbon-cics-system-group /> 簡易Jobキューシステムを作った
 3 秒ルール回避 + 疑似非同期 = 生存 🎉
 
 GAS の Trigger を使って簡単に非同期を行えるようにライブラリ化しました。  
@@ -635,7 +636,7 @@ Triggerがライブラリに実行を通知し、ライブラリ側からキャ�
 layout: section
 ---
 
-# 思いがけない副次効果
+# <carbon-magic-wand /> 思いがけない副次効果
 
 <!--
 そして、思いがけない副次効果もありました。
@@ -643,7 +644,7 @@ layout: section
 
 ---
 
-# Webアプリのログ問題が解消！！
+# <carbon-document-preliminary /> Webアプリのログ問題が解消！！
 デバッグが凄くやりやすくなりました
 
 トリガー実行時にログ出力(`console.info()`)すると、ログ表示できます
@@ -663,7 +664,7 @@ WebAppの種類だとGASエディタ上でログ表示できませんが、ト�
 
 ---
 
-# HTTPリクエストが特殊
+# <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
 * UserAgent を更新できない  
@@ -690,7 +691,7 @@ const options = {
 
 ---
 
-# HTTPリクエストが特殊
+# <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
 * リクエスト時の IP を固定できない  
@@ -703,7 +704,7 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 
 ---
 
-# HTTPリクエストが特殊
+# <carbon-network-4 /> HTTPリクエストが特殊
 スクレイピングに制約
 
 * ホワイトリストに登録していない URL にアクセスできない ^[参考: https://developers.google.com/apps-script/manifest/allowlist-url]  
@@ -729,7 +730,7 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 
 ---
 
-# 諦めて他のFaaSにリクエスト処理を移譲
+# <carbon-cloud-upload /> 諦めて他のFaaSにリクエスト処理を移譲
 どう頑張っても UserAgent は変えられない
 
 勤怠 Bot では UserAgent で弾かれたので、仕方無しに Netlify 経由でアクセスするようにしました
@@ -746,7 +747,7 @@ User-Agentを変更できない問題については、他のFaaS（Function as 
 
 ---
 
-# 画像加工も苦労した
+# <carbon-image-search /> 画像加工も苦労した
 LGTM 画像を作りたかった
 
 インチキしています。Cloudinary が使いやすかったです 😅
@@ -763,7 +764,7 @@ Pure JavaScriptの画像編集ライブラリをWebpackでバンドルし、ト�
 
 ---
 
-# 画像レスポンスも工夫が必要
+# <carbon-image /> 画像レスポンスも工夫が必要
 ContentService.setMimeType できるけれど、CSV, iCal, JavaScript, JSON, Text, vCard のみ
 
 GAS では画像を直接レスポンス出来ないので、Google Drive にアップロードして共有 URL を作成して配信させる
@@ -777,7 +778,7 @@ GAS では画像を直接レスポンス出来ないので、Google Drive にア
 
 ---
 
-# セッション管理も時前で行う必要がある
+# <carbon-save /> セッション管理も時前で行う必要がある
 データの永続化が特殊
 
 * PropertiesService  
@@ -796,7 +797,7 @@ Slack ならユーザーには見えづらいので、やりやすい
 
 ---
 
-# まだまだできないこと
+# <carbon-construction /> まだまだできないこと
 
 * リダイレクトができない   
 HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
@@ -809,7 +810,7 @@ HTMLをレスポンスさせて強制的にリフレッシュさせることは�
 
 ---
 
-# 気になっていること  
+# <carbon-view /> 気になっていること  
 ライブラリ問題に一石を投じるか！？
 
 <OgpImage url="https://zenn.dev/mascii/articles/go-wasm-on-google-apps-script" />
@@ -823,7 +824,7 @@ HTMLをレスポンスさせて強制的にリフレッシュさせることは�
 layout: end
 ---
 
-ご清聴ありがとうございました
+# <carbon-face-satisfied /> ご清聴ありがとうございました
 
 <!--
 ご清聴ありがとうございました
