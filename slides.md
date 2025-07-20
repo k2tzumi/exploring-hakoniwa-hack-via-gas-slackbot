@@ -436,7 +436,7 @@ layout: two-cols-header
   デバッグが地獄..
 
 * <carbon-network-4 /> HTTP リクエストが特殊  
-  ホワイトリストで登録されたものしか
+  ホワイトリストで登録必須    
   UserAgent を変更できない
 
 ::right::
@@ -445,7 +445,7 @@ layout: two-cols-header
   Canvas もなければライブラリもない
 
 * <carbon-save /> データ永続化が特殊  
-  workspace のファイルをストレージ代わりにすることはできるけれど
+  workspace のファイルをストレージ代わりにできるけれど
 
 <!--
 GASにはいくつか辛い課題がありました。  
