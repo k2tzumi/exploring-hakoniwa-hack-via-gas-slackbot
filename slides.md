@@ -493,8 +493,8 @@ GASは独自実行環境のため、Node.jsやブラウザ向けのnpmライブ�
 # <carbon-code-reference /> 自前でSlack APIのクライアントを実装
 Slack の Web API は [公開されている](https://api.slack.com/web) ので生暖かく `UrlFetchApp.fetch`
 
-GASでは `UrlFetchApp` 以外にHTTP通信を行う手段はありません。  
-Google Workspace以外の外部サービスとの連携やWebスクレイピングに欠かせません。
+GAS では `UrlFetchApp` 以外に HTTP 通信を行う手段はありません。  
+Google Workspace 以外の外部サービスとの連携や Web スクレイピングに欠かせません。
 
 <Transform :scale="0.7">
 
