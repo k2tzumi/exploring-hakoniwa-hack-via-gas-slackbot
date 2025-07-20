@@ -243,7 +243,7 @@ layout: section
 layout: two-cols-header
 ---
 
-# <devicon-slack /> 作ったSlackBot達 <carbon-chat-bot />
+# <devicon-slack /> 作ったSlack Botたち <carbon-chat-bot />
 
 ::left::
 
@@ -258,7 +258,7 @@ layout: two-cols-header
 * [LGTM画像作成コマンド](https://github.com/k2tzumi/lgtm-slash-command)
 LGTM 画像を作成する
 
-#### <carbon-chat /> **会話系**
+#### <carbon-chat /> **雑談系**
 
 * [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
 ChatGPT と Slack を繋ぐ Bot
@@ -296,7 +296,7 @@ esa の URL を展開
 Strava のアクティビティをドヤるやつ
 
 <!--
-実務系、便利系、会話系など、幅広くレパートリーを揃えています  
+実務系、便利系、雑談系など、幅広くレパートリーを揃えています  
 社内で一番Botを生やしていると自負しています
 -->
 
@@ -353,7 +353,7 @@ layout: two-cols-header
 
 クレジットカード登録が不要で無料で開発でき、Googleアカウントさえあればすぐに始められます。  
 
-環境構築の手間も少なく、約5年間Botを運用していますが、Google側の問題で止まったということがなく、非常にストレスフリーです。
+環境構築の手間も少なく、約5年間Botを運用していますが、Google側で問題が起きて止まったということがなく、非常にストレスフリーです。
 
 また、TypeScriptでの開発も可能で、言語の学習の良い課題だと思い、使い始めました。
 -->
@@ -449,7 +449,7 @@ layout: two-cols-header
 
 <!--
 GASにはいくつか辛い課題がありました。  
-色々なBotを作っていく中で、ここに挙げたような課題を乗り越えたり、乗り越えなかったりした知見を話したいと思います。
+色々なBotを作っていく中で、ここに挙げたような課題を乗り越えたり、乗り越えなかったりした知見を話します
 -->
 
 ---
@@ -493,8 +493,8 @@ GASは独自実行環境のため、Node.jsやブラウザ向けのnpmライブ�
 # <carbon-code-reference /> 自前でSlack APIのクライアントを実装
 Slack の Web API は [公開されている](https://api.slack.com/web) ので生暖かく `UrlFetchApp.fetch`
 
-`UrlFetchApp.fetch` は GAS で HTTP 通信を行うための最重要 API です。  
-外部 API との連携、Web スクレイピングなどで必須の機能です。
+GASでは `UrlFetchApp` 以外にHTTP通信を行う手段はありません。  
+Google Workspace以外の外部サービスとの連携やWebスクレイピングに欠かせません。
 
 <Transform :scale="0.7">
 
@@ -529,12 +529,12 @@ private invokeAPI(endPoint: string, payload: Record<never, never>): Response {
 <!--
 ではどうしたかというと、自前でSlack APIのクライアントを実装しました。  
 SlackのWeb APIは公開されているので、UrlFetchAppを使って書いていく形です。  
-これはGASでHTTP通信を行うための最も重要なAPIで、外部API連携やWebスクレイピングに必須の機能です。
+これはGASで外部サービス連携やWebスクレイピングする為の唯一の手段です。
 -->
 
 ---
 
-# <carbon-timer /> SlackBotの３秒ルール問題
+# <carbon-timer /> Slack Botの３秒ルール問題
 3 秒間レスポンスを返さないと
 
 <blockquote>
@@ -546,17 +546,17 @@ SlackのWeb APIは公開されているので、UrlFetchAppを使って書いて
 (参考: <a href="https://api.slack.com/interactivity/handling#acknowledgment_response">"Respond immediately to the initial request"</a>)
 
 
-slash コマンドの実行時など問題になりがち  
+slash コマンドの実行時など問題になりがち
 
 <!--
-次に「Slack Botの3秒ルール問題」です。  
+次に「Slack Botの3秒ルール問題」です。
 -->
 
 ---
 layout: two-cols-header
 ---
 
-# <carbon-timer /> SlackBotの３秒ルール問題
+# <carbon-timer /> Slack Botの３秒ルール問題
 
 
 ::left::
@@ -609,7 +609,8 @@ async function asyncFunctionThatWillBeTerminated() {
 
 <!--
 3秒以内にレスポンスを返さないとエラーになります。  
-GASは同期実行モデルであるため、レスポンスを返すとその時点で実行が終了し、非同期処理が途中で終わってしまうという問題がありました。
+
+[click] GASは同期実行モデルであるため、レスポンスを返すとその時点で実行が終了し、非同期処理が途中で終わってしまうという問題がありました。
 -->
 
 ---
@@ -626,12 +627,10 @@ TimeBased Trigger が JobBroker に実行を通知し、JobBroker がキャッ�
 
 <OgpImage url="https://zenn.dev/katzumi/articles/gas-library-globalthis-scope" />
 
-
-
 <!--
 これに対し、簡易Jobキューシステムを自作しました。  
 GASのトリガーを使って簡単に非同期処理を行えるようにライブラリ化しました。  
-Triggerがライブラリに実行を通知し、ライブラリ側からキャッシュされたパラメーターを用いてアプリケーション本体の関数を非同期で実行する仕組みです。  
+Triggerがライブラリに実行を通知し、ライブラリ側からキャッシュされたパラメーターを用いてアプリケーション本体の関数本体を非同期で実行する仕組みです。  
 
 詳細は記事がありますので、そちらをご覧ください。  
 また、テクニック的なことですが、アプリケーションのglobalThisをライブラリに渡すことで、ライブラリがアプリケーション本体のグローバル関数を動的に呼び出すことができます。  
@@ -665,7 +664,7 @@ Webアプリのログが見れない問題が解消したのです。
 トリガー実行時にconsole.info()でログを出力すると、ログが表示できるようになりました。  
 
 WebAppの種類だとGASエディタ上でログ表示できませんが、トリガー実行の場合は可能です。  
-本来はGCPプロジェクトを作成してStackDriver Loggingに出力させる必要がありますが、課金の問題などもあり、この方法であれば簡単にログを見ることができます。
+本来はGCPプロジェクトを作成してCloud Loggingへ出力させる必要がありますが、課金の問題などもあり、この方法であれば簡単にログを見ることができます。
 -->
 
 ---
@@ -692,7 +691,8 @@ const options = {
 ```
 
 <!--
-「HTTPリクエストが特殊」という課題もあります。User-Agentを更新できなかったり
+「HTTPリクエストが特殊」という課題もあります。  
+User-Agentを更新できなかったり
 -->
 
 ---
@@ -731,7 +731,7 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 ```
 
 <!--
-また、マニフェストファイルにurlFetchWhitelistにURLを登録しないとアクセスできません。
+また、マニフェストファイルにurlFetchWhitelistにURLを登録しないとリクエスト送信ができません。
 -->
 
 ---
@@ -747,7 +747,7 @@ GAS からのリクエストは、Google の特定の IP アドレス範囲 ^[ht
 ヘッドレスブラウザ利用も GAS では難しい
 
 <!--
-User-Agentを変更できない問題については、他のFaaS（Function as a Service）にリクエスト処理を移譲しました。  
+User-Agentを変更できない問題については、他のFunction as a Serviceにリクエスト処理を移譲しました。  
 具体的にはNetlify Functionsを使って回避しました
 -->
 
@@ -764,8 +764,9 @@ Pure JS の画像編集ライブラリを WebPack でバンドル。トランス
 <OgpImage url="https://github.com/k2tzumi/lgtm-slash-command-npm-library-based" />
 
 <!--
-「画像加工も苦労した」点です。LGTM画像を作りたかったのですが、Canvasや画像加工ライブラリがGASにはないため、外部サービスを利用しました。  
-Pure JavaScriptの画像編集ライブラリをWebpackでバンドルし、トランスパイルしてGASで動かそうと試みましたが、うまくいきませんでした。
+画像加工も苦労しました　　
+LGTM画像を作りたかったのですが、Canvasや画像加工ライブラリがGASにはないため、外部サービスを利用しました。  
+Pure JavaScriptの画像編集ライブラリをWebpackでトランスパイルしてGASで動かそうと試みましたが、うまくいきませんでした。
 -->
 
 ---
@@ -775,11 +776,12 @@ ContentService.setMimeType できるけれど、CSV, iCal, JavaScript, JSON, Tex
 
 GAS では画像を直接レスポンス出来ないので、Google Drive にアップロードして共有 URL を作成して配信させる
 
-<OgpImage url="https://github.com/k2tzumi/slack-strava-unfurling" />  
+<OgpImage url="https://github.com/k2tzumi/slack-strava-unfurling" />
 
 <!--
-「画像レスポンスも工夫が必要」です。ContentService.setMimeTypeで設定できるMIMEタイプは厳密に定められており、画像は直接レスポンスできません。  
-それを回避する為にoogle Driveにアップロードして共有URLを作成し、それを配信するという手法を取りました。
+「画像レスポンスも工夫が必要」です。　　
+setMimeTypeで設定できるMIMEタイプは厳密に定められており、画像は直接レスポンスできません。  
+それを回避する為にGoogle Driveにアップロードして共有URLを作成し、それを配信するという手法を取りました。
 -->
 
 ---
@@ -798,19 +800,18 @@ GAS では画像を直接レスポンス出来ないので、Google Drive にア
   Slack ならユーザーには見えづらいので、やりやすい
 
 <!--
-「セッション管理も自前で行う必要がある」という課題もありました。  
-データの永続化が特殊で、PropertiesServiceをKVS（Key-Value Store）として利用したり、SlackのInteractive Componentsのhiddenパラメータにデータを埋め込んで状態管理をしたりと、自前で実装する必要がありました。
+セッション管理も自前で行う必要がありました。  
+データの永続化が特殊な為、PropertiesServiceをKVSとして利用したり、SlackのInteractive Componentsのhiddenパラメータにデータを埋め込んで状態管理をしたり、自前で実装しました
 -->
 
 ---
 
-# <carbon-construction /> まだまだできないこと
+# <carbon-construction /> まだまだ壁があります
 
 * <carbon-unlink /> リダイレクトができない  
 
-  HTML をレスポンスさせて強制的にリフレッシュさせることはできるけれど、使い所が限定的  
+  HTML をレスポンスさせて強制的にリフレッシュさせることはできますが、使い所が限定的です  
   `addOns.common.openLinkUrlPrefixes` の指定も必要
-
 
 <!--
 まだできないこともあります。例えば「リダイレクト」です。  
