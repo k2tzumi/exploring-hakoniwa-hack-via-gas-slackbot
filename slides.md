@@ -3,7 +3,7 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://images.unsplash.com/photo-1667514625485-8ee6281f9dac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80
+background: https://images.unsplash.com/photo-1667514625485-8ee6281f9dac?auto=format&fit=crop&w=2000&q=80
 # some information about your slides (markdown enabled)
 title:  「箱庭」をハックするGoogle Apps Script： Slack Bot開発で得た知見（可能性と挑戦）
 info: |
@@ -248,7 +248,7 @@ layout: two-cols-header
 #### <fa-cogs /> **実務系**
 
 * [Mob Timer Bot](https://github.com/k2tzumi/mob-timer-bot)
-対話的なモブプログラミングタイマー
+対話的なモブプロタイマー
 
 * [勤怠Bot](https://github.com/k2tzumi/hue-kintai-slask-command)
 勤怠システムと連動した打刻（開発停止中）
@@ -258,7 +258,7 @@ LGTM 画像を作成する
 
 #### <carbon-chat /> **雑談系**
 
-* [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
+* <arcticons-openai-chatgpt /> [OpenAI Bot](https://github.com/k2tzumi/openai-slack-bot)
 ChatGPT と Slack を繋ぐ Bot
 
 * [echo bot](https://github.com/k2tzumi/slack-echo-bot)
@@ -269,9 +269,8 @@ invite されたチャネルの内容を別チャネルに echo する。times �
 #### <carbon-tool-kit /> **便利系**
 
 * [選んでコマンド](https://github.com/k2tzumi/choice-slash-command)
-通称綾鷹コマンド
-
-* [Pic Search](https://github.com/k2tzumi/pic-search-slash-command)
+通称綾鷹コマンド<noto-teacup-without-handle /> 
+* <mdi-image-search /> [Pic Search](https://github.com/k2tzumi/pic-search-slash-command)
 画像検索コマンド。ksk コマンド対応
 
 * [お天気アプリ](https://github.com/k2tzumi/slack-jma-bot)
@@ -281,16 +280,14 @@ invite されたチャネルの内容を別チャネルに echo する。times �
 
 * [Emoji Webhook](https://github.com/k2tzumi/new_emoji_webhook)
 新しい絵文字を通知
-
 * [チャネル作成Webhook](https://github.com/k2tzumi/new_channel_webhook)
-新しく作成されたチャネルを通知
+新チャネルを通知
 
 #### <carbon-link /> **URL展開**
 
 * [esa](https://github.com/k2tzumi/slack-esa-unfurling)
 esa の URL を展開
-
-* [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
+* <fa6-brands-strava /> [Strava](https://github.com/k2tzumi/slack-strava-unfurling)
 Strava のアクティビティをドヤるやつ
 
 <!--
